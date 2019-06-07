@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+    {% block body %}
+    <div class="row mb-5 mt-5">
+            <h1>Liste des mangas:</h1>
+        </div>
+    {% for manga in les_mangas %}
+    <div class="card mt-3 mb-3 ">
+        <div class="ml-2 mr-2 mt-2 mb-2">
+        <h3>Titre: {{ manga.titre }}</h3>
+        <p><h4>résumer:</h4> {{ manga.resumer|truncatewords:50}}</p>
+        {% for auteur in manga.auteur.all %}
+        <p>écrit par: {{ auteur.nom }} {{ auteur.prenom }}</p>
+        
+    {% endfor %}
+    <p><a href="{% url 'le_manga' manga.id %}">En savoir plus</a></p>
+    </div>
+    </div>        
+    {% empty %}
+        <p>Aucun manga.</p>
+    {% endfor %}
+    {% endblock %}

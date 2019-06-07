@@ -1,20 +1,31 @@
 {% extends 'base.html' %}
-
     {% block body %}
-    <div class="row mt-5">
+    <div class="row mt-5" >
         <div class="col-md-12 text-center">
             <h1>Bienvenue sur le site de découverte Mangas</h1>
             <h4>Veuillez selectionner une catégorie:</h4>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-6 mt-5 text-center">
+    <div class="card mt-5 " >
+    <div class="row mt-2 test">
+            <div class="col-md-6 mt-5 text-center">
+                <h2>Ajouter un Manga</h2>
+                <a class="btn btn-warning mt-1" href="{% url "manga" %}">Ajouter</a>            
+            </div>
+            <div class="col-md-6 mt-5 text-center">
+                <h2>Ajouter un Auteur</h2>
+                <a class="btn btn-danger mt-1" href="{% url "auteur" %}">Ajouter</a>
+            </div>
+        </div>
+    <div class="row mb-2">
+        <div class="col-md-6 mt-5 mb-5 text-center">
             <h2>Les Mangas</h2>
-            <a class="btn btn-info mt-1" href="#">Voir les mangas</a>            
+            <a class="btn btn-info mt-1" href="{% url "liste_manga" %}">Voir les mangas</a>            
         </div>
-        <div class="col-md-6 mt-5 text-center">
-            <h2>Les auteurs</h2>
-            <a class="btn btn-success mt-1" href="#">Voir les auteurs</a>
+        <div class="col-md-6 mt-5 mb-5 text-center">
+            <h2>Les Auteurs</h2>
+            <a class="btn btn-success mt-1" href="{% url "liste_auteur" %}">Voir les auteurs</a>
         </div>
+    </div>
     </div>
     {% endblock %}

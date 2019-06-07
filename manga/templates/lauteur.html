@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+    {% block body %}
+    <div class="row">
+        <div class="col-md-12">
+        <h1 class="mt-5 mb-5">{{ auteur.nom }} {{ auteur.prenom }}</h1> 
+        <p class="mt-5"><h5>Age: {{ auteur.age }}</h5></p>
+        {% if auteur.histoire != empty %}
+        <p class=""><h5>Histoire: {{ auteur.histoire }}</h5></p>
+        {% endif %}
+        </div>
+    </div>
+    <a class=" btn btn-danger" href="{% url 'suppr_auteur' auteur.id %}">Supprimer</a>
+    {% endblock %}

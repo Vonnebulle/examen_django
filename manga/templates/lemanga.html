@@ -1,10 +1,22 @@
 {% extends 'base.html' %}
 
     {% block body %}
-    <h1 class="mt-5 mb-5">{{ manga.titre }}</h1> 
-    <p class="mt-5"><h4>{{ manga.resumer }}</h4></p>
-    {% for auteur in manga.auteur.all %}
-        <p><h5>écrit par: {{ auteur.nom }} {{ auteur.prenom }}</h5></p> 
-    {% endfor %}
-    <a class=" btn btn-danger" href="{% url 'suppr_manga' manga.id %}">Supprimer</a>
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <img src="{{ manga.image.url }}" style="">
+        </div>
+        <div class="col-md-6">
+            <h1 class="mt-5 mb-5">{{ manga.titre }}</h1> 
+            <p class="mt-5"><h4>{{ manga.resumer }}</h4></p>
+            {% for auteur in manga.auteur.all %}
+                <p><h5>écrit par: {{ auteur.nom }} {{ auteur.prenom }}</h5></p> 
+            {% endfor %}
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1 offset-11">
+            <a class=" btn btn-danger text-right" href="{% url 'suppr_manga' manga.id %}">Supprimer</a>
+        </div>
+    </div>
     {% endblock %}

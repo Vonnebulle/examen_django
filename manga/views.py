@@ -8,7 +8,7 @@ def home(request):
     return render(request, 'home.html')
 
 def manga(request):
-    form = MangaForm(request.POST or None)
+    form = MangaForm(request.POST or None, request.FILES or None)
     if form.is_valid(): 
         envoi = True
         form.save()
@@ -23,9 +23,8 @@ def auteur(request):
 
 def liste_auteur(request):
     auteurs = Auteur.objects.all()
-    mangas = Manga.objects.all()
 
-    return render(request, 'liste_auteurs.html', {'les_auteurs': auteurs, 'les_mangas': mangas})
+    return render(request, 'liste_auteurs.html', {'les_auteurs': auteurs })
 
 def liste_manga(request):
     mangas = Manga.objects.all()
@@ -39,3 +38,12 @@ def suppr_manga(request, id):
     manga = get_object_or_404(Manga, id=id)
     manga.delete()
     return redirect(liste_manga)
+
+def l_auteur(request,id):
+    auteur = get_object_or_404(Auteur, id=id)
+    return render(request, 'lauteur.html' ,{'auteur':auteur})
+
+def suppr_auteur(request, id):
+    auteur = get_object_or_404(Auteur, id=id)
+    auteur.delete()
+    return redirect(liste_auteur)

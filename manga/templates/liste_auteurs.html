@@ -10,8 +10,9 @@
             <div class="ml-2 mr-2 mt-2 mb-2">
                 <h3>{{ auteur.nom }} {{ auteur.prenom}}</h3>
                 <p>age: {{ auteur.age}} ans</p>
+                <p><a href="{% url 'l_auteur' auteur.id %}">En savoir plus</a></p>
             </div>
-        </div>
+        </div>  
     </div>
     {% empty %}
         <p>Aucun auteur.</p> 

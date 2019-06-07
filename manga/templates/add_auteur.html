@@ -21,6 +21,12 @@
             <label for="{{ form.age.id_for_label }}">{{ form.age.label }}</label>
             {{ form.age }}
         </div>
+
+        <div class="form-group">
+                {{ form.histoire.errors }}
+                <label for="{{ form.histoire.id_for_label }}">{{ form.histoire.label }}</label>
+                {{ form.histoire }}
+            </div>
         
         <input class="btn btn-success" type="submit"/>
         </form>

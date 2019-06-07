@@ -23,4 +23,5 @@ class AuteurForm(forms.ModelForm):
             'nom': forms.TextInput(attrs={'class': "form-control"}),
             'prenom': forms.TextInput(attrs={'class': "form-control"}),
             'age': forms.TextInput(attrs={'class': "form-control"}),
+            'histoire': forms.Textarea(attrs={'class': "form-control"}),
         }
